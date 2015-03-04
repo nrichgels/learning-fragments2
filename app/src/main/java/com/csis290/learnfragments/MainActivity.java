@@ -15,6 +15,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         tvGreen = (TextView) findViewById(R.id.tv_green);
@@ -24,8 +25,17 @@ public class MainActivity extends Activity {
         tvGreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, new GreenFragment())
+
+                Bundle bundle = new Bundle();
+                bundle.putString("key", "Welcome to the Activity");
+
+                GreenFragment greenFragment = new GreenFragment();
+                greenFragment.setArguments(bundle);
+
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, greenFragment)
+                        .addToBackStack("")
                         .commit();
             }
         });
@@ -34,13 +44,28 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
 
+                Bundle bundle = new Bundle();
+                bundle.putString("key2", "Welcome to the Activity, Blue");
+
+                BlueFragment blueFragment = new BlueFragment();
+                blueFragment.setArguments(bundle);
+
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, blueFragment)
+                        .addToBackStack("")
+                        .commit();
             }
         });
 
         tvRed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new RedFragment())
+                        .addToBackStack("")
+                        .commit();
             }
         });
     }

@@ -1,2 +1,3 @@
 # learning-fragments
-Let's learn about Fragments
+
+In this version of Learning-Fragments, we use an asychronious to display our blue fragment.

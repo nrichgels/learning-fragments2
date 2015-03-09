@@ -1,6 +1,7 @@
 package com.csis290.learnfragments;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -105,7 +106,7 @@ public class MainActivity extends Activity {
                 getFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_container, blueFragment)
-                        .setTransition(fragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .addToBackStack("")
                         .commit();
             } //End run
